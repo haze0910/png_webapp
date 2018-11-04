@@ -106,13 +106,20 @@ namespace BaristaWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> VendBeverageAsync(string id, string beverageId)
         {
-            var pantry = await _pantryRepository.GetAsync(id);
-            if (pantry == null) return NotFound();
-            Guid.TryParse(id, out Guid pantryId);
-            Guid.TryParse(beverageId, out Guid gBevId);
-            var result = pantry.VendBeverage(new PantryBeverage { PantryId = pantryId, BeverageId = gBevId });
-            _pantryRepository.Update(pantry);
-            return Ok(result);
+            try
+            {
+                var pantry = await _pantryRepository.GetAsync(id);
+                if (pantry == null) return NotFound();
+                Guid.TryParse(id, out Guid pantryId);
+                Guid.TryParse(beverageId, out Guid gBevId);
+                var result = pantry.VendBeverage(new PantryBeverage { PantryId = pantryId, BeverageId = gBevId });
+                _pantryRepository.Update(pantry);
+                return Ok(result);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         
     }

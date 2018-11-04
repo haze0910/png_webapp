@@ -33,7 +33,11 @@ export class HomeComponent {
     this.http.post(this.localUrl + 'api/pantry/00E01802-844E-4320-8A09-00E0574DA645/beverage/'+ data.beverageId + '/vend', headers).subscribe(result => {
       this.vendResult = result;
       alert("Getting " + data.name + " was successful.");
-    }, error => console.error(error));
+    }, error =>
+    {
+      alert("Error in getting " + data.name + " : " + error.error)
+    }
+    );
   }
 }
 
