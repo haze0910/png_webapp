@@ -1,0 +1,24 @@
+<h1>Ingredients Inventory</h1>
+<div class="wrapper-md">
+  <div class="col-md-1">&nbsp;</div>
+  <div class="col-md-10">
+    <div class="row row-sm text-center">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" *ngFor="let inventory of inventories">
+        <div class="panel padder-v item">
+          <div class="row">
+            <div class="col-xs-8">
+              <span class="h3 font-bold h3">{{inventory.name}}</span>
+            </div>
+            <div class="col-xs-4">
+              <div class="h3 text-info h3">{{inventory.quantity}}</div>
+              <span class="text-muted text-xs">{{inventory.unit}}</span>
+            </div>
+            
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1">&nbsp;</div>
+  </div>
+</div>

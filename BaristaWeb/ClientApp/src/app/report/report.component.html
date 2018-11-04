@@ -1,0 +1,50 @@
+
+<div class="wrapper-md">
+  <div class="row">
+    <h2>Order Summary</h2>
+    <div class="col-md-1">&nbsp;</div>
+    <div class="col-md-10">
+      <div class="row row-sm text-center">
+        <div class="col-xs-12 col-sm-12 col-md-12" *ngFor="let beverage of beverageDistributions">
+          <div class="panel padder-v item">
+            <div class="row">
+              <div class="col-xs-6">
+                <span class="h3 font-bold h3">{{beverage.name}}</span>
+              </div>
+              <div class="col-xs-3">
+                <div class="h3 text-info h3">{{beverage.dailyCount}}</div>
+                <span class="text-muted text-xs">daily orders</span>
+              </div>
+              <div class="col-xs-3">
+                <div class="h3 text-info h3">{{beverage.monthlyCount}}</div>
+                <span class="text-muted text-xs">monthly orders</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1">&nbsp;</div>
+  </div> 
+  <div class="row">
+    <h2>Order History</h2>
+    <table class='table' *ngIf="orders">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.name }}</td>
+          <td>{{ order.date }}</td>
+          <td>{{ order.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  
